@@ -1,10 +1,8 @@
 import React from 'react';
 
 const SignInPage = () => {
-  return (
-    <div>
-      <h2>Sign In</h2>
-    </div>
+   return (
+      <h1 className="text-2xl font-extrabold">Signin</h1>
   );
 };
 

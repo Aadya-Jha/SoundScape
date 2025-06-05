@@ -1,9 +1,10 @@
 import React from 'react';
+import './SongsPage.css';
 
 const SongsPage = () => {
   return (
-    <div>
-      <h2 className="text-3xl font-extrabold">Songs</h2>
+    <div className="page-container">
+      <h2>Songs</h2>
     </div>
   );
 };

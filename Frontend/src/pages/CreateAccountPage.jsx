@@ -1,9 +1,10 @@
 import React from 'react';
+import './CreateAccountPage.css';
 
 const CreateAccountPage = () => {
   return (
-    <div>
-      <h2 className='text-3xl font-extrabold'>Create Account</h2>
+    <div className="page-container">
+      <h2>Create Account</h2>
     </div>
   );
 };

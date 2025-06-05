@@ -1,13 +1,13 @@
 import React from 'react';
 import Navbar from './Navbar';
+import '../index.css'; 
+import './Navbar.css'; 
 
 const Layout = ({ children }) => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-300 via-purple-200 to-purple-500">
+    <div className="layout-background">
       <Navbar />
-      <main className="max-w-3xl mx-auto text-center text-black">
-        {children}
-      </main>
+      <main>{children}</main>
     </div>
   );
 };

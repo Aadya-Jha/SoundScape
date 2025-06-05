@@ -1,8 +1,11 @@
 import React from 'react';
+import './SignInPage.css';
 
 const SignInPage = () => {
-   return (
-      <h1 className="text-3xl font-extrabold">Signin</h1>
+  return (
+    <div className="page-container">
+      <h2>Sign In</h2>
+    </div>
   );
 };
 

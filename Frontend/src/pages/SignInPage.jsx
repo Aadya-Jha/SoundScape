@@ -2,7 +2,7 @@ import React from 'react';
 
 const SignInPage = () => {
    return (
-      <h1 className="text-2xl font-extrabold">Signin</h1>
+      <h1 className="text-3xl font-extrabold">Signin</h1>
   );
 };
 

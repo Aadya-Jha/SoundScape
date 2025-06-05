@@ -1,29 +1,17 @@
 const express = require('express');
 const router = express.Router();
 
-const allSongs = (req, res) => {
-    res.send("all songs webpage");
-};
+const {
+    allSongs,
+    artist,
+    selectedSong,
+    idSong
+} = require('../controllers/songController')
 
 router.get('/', allSongs);
-
-const artist = (req, res) => {
-    res.send("all songs of a artist");
-};
-
 router.get('/artist/:artistName', artist);
-
-const singleSong = (req, res) => {
-    res.send("a particular song");
-};
-
-router.get('/:songname', singleSong);
-
-const songid = (req, res) => {
-    res.send("id of one song");
-};
-
-router.get('/:songid', songid);
+router.get('/:songname', selectedSong);
+router.get('/:songid', idSong);
 
 const addReviews = (req, res) => {
     res.send("add review to the song");

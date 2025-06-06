@@ -11,7 +11,6 @@ const {
 router.get('/', allSongs);
 router.get('/artist/:artistName', artist);
 router.get('/:songname', selectedSong);
-router.get('/:songid', idSong);
 
 const addReviews = (req, res) => {
     res.send("add review to the song");

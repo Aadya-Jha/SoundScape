@@ -6,3 +6,15 @@
   font-size: 24px;
   font-weight: 900;
 }
+
+.search-input {
+  margin: 0.5rem auto;
+  padding: 0.5rem;
+  display: block;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+

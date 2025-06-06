@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import './SongsPage.css';
 import SongCard from '../components/SongCard';
 
@@ -21,11 +22,24 @@ const songs = [
 ];
 
 const SongsPage = () => {
+  const [searchText, setSearchText] = useState('');
+
+  const filteredSongs = songs.filter(song =>
+    song.title.toLowerCase().includes(searchText.toLowerCase())
+  );
+
   return (
     <div className="page-container">
+      <input
+        type="text"
+        placeholder="Search songs"
+        value={searchText}
+        onChange={(e) => setSearchText(e.target.value)}
+        className="search-input"
+      />
       <h2>Songs</h2>
       <div className="songs-list">
-        {songs.map((song, index) => (
+        {filteredSongs.map((song, index) => (
           <SongCard
             key={index}
             title={song.title}

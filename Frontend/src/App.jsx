@@ -6,6 +6,7 @@ import CreateAccountPage from './pages/CreateAccountPage';
 import SignInPage from './pages/SignInPage';
 import SongsPage from './pages/SongsPage';
 import ArtistSongsPage from './pages/ArtistSongsPage';
+import SingleSongPage from './pages/SingleSongPage'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/SignInPage" element={<SignInPage />} />
           <Route path="/SongsPage" element={<SongsPage />} />
           <Route path="/songs/artist/:artistName" element={<ArtistSongsPage/>} />
+          <Route path='/songs/:songname' element={<SingleSongPage />}/>
         </Routes>
       </Layout>
     </Router>

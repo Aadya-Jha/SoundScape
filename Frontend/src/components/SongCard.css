@@ -1,0 +1,35 @@
+.song-card {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  margin: 1rem;
+  max-width: 300px;
+}
+
+.album-art {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-right: 1rem;
+}
+
+.song-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.song-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.song-artist {
+  margin: 0.125rem 0;
+  color: #555;
+  font-size: 0.95rem;
+}

@@ -1,14 +1,36 @@
 const allSongs = (req,res) => {
-    res.json({
-        message: "All songs"
-    });
+    const songs = [
+        {
+            albumName: "Bad Blood",
+            artistName: "Taylor Swift"
+        },
+        {
+            albumName: "Levitating",
+            artistName: "Dua Lipa"
+        },
+        {
+            albumName: "Tak Me Home",
+            artistName: "One Direction"
+        }
+    ];
+    res.send(songs);
 };
 
 const artist = (req, res) => {
-    const {artistName} = req.params;
-    res.json({
-        artist: artistName
-    });
+  const { artistName } = req.params;
+
+  const allSongs = [
+    { title: "Lover", artist: "Taylor Swift" },
+    { title: "Levitating", artist: "Dua Lipa" },
+    { title: "Perfect", artist: "Ed Sheeran" },
+    { title: "Delicate", artist: "Taylor Swift" },
+  ];
+
+  const filteredSongs = allSongs.filter(
+    (song) => song.artist.toLowerCase() === artistName.toLowerCase()
+  );
+
+  res.send(filteredSongs);
 };
 
 const selectedSong = (req, res) => {

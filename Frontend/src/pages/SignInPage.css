@@ -1,33 +1,84 @@
+/* Base Layout */
 .page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f3f4f6, #ffffff);
   padding: 2rem;
-  text-align: center;
-  color: black;
+  color: #1a1a1a;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #8b5cf6; /* Core purple */
+}
+
+/* Form Container */
+.form-box {
+  background: #ffffff;
+  padding: 2.5rem 2.75rem;
+  border-radius: 16px;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 12px 32px rgba(139, 92, 246, 0.1); /* Light purple shadow */
+  width: 100%;
+  max-width: 420px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(139, 92, 246, 0.15);
+}
+
+/* Form Fields */
+.form-box form > div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.form-box label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #8b5cf6; /* Core purple for labels */
 }
 
 .form-box input {
-  max-width: 600px;
-  margin: 1rem;
-  padding: 0.6rem;
-  border: 1px solid #ccc;
-  border-radius: 12px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  font-size: 0.6rem;
+  padding: 0.9rem 1rem;
+  font-size: 0.95rem;
+  border: 1px solid #c4b5fd; /* Light purple border */
+  border-radius: 10px;
+  background-color: #fff;
+  transition: border 0.25s ease, box-shadow 0.25s ease;
 }
 
+.form-box input:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+  outline: none;
+}
+
+/* Button */
 .form-box button {
-  width: 40%;
+  width: 100%;
   padding: 1rem;
-  margin: 1rem;
-  background-color: #8b5cf6; /* purple */
+  font-size: 1rem;
+  font-weight: 600;
+  background: linear-gradient(to right, #8b5cf6, #7c3aed);
   color: white;
   border: none;
-  border-radius: 6px;
-  font-size: 1rem;
+  border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .form-box button:hover {
-  background-color: #7c3aed; /* darker purple */
+  transform: scale(1.02);
+  box-shadow: 0 6px 16px rgba(124, 58, 237, 0.3);
 }

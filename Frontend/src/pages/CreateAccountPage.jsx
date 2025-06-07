@@ -44,8 +44,8 @@ const [confirmPassword, setConfirmPassword] = useState('');
             id="confirmPassword"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)} />
-            <button type="submit">Create Account</button>
-          </div>
+           </div>
+           <button type="submit">Create Account</button>
         </form>
       </div>
     </div>

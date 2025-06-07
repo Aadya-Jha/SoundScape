@@ -28,6 +28,7 @@ const SongsPage = () => {
 
   return (
     <div className="page-container">
+      <h2>Songs</h2>
       <input
         type="text"
         placeholder="Search songs"
@@ -35,7 +36,7 @@ const SongsPage = () => {
         onChange={(e) => setSearchText(e.target.value)}
         className="search-input"
       />
-      <h2>Songs</h2>
+     
       <div className="songs-list">
         {filteredSongs.map((song, index) => (
           <Link to={`/songs/${encodeURIComponent(song.albumName)}`} key={index} style={{ textDecoration: 'none', color: 'inherit' }}>

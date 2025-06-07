@@ -8,6 +8,7 @@ import SongsPage from './pages/SongsPage';
 import ArtistSongsPage from './pages/ArtistSongsPage';
 import SingleSongPage from './pages/SingleSongPage';
 import UserProfile from './pages/UserProfile';
+import OtherUserProfile from './pages/OtherUserProfile';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/songs/artist/:artistName" element={<ArtistSongsPage/>} />
           <Route path='/songs/:songname' element={<SingleSongPage />}/>
           <Route path='/users/me' element={<UserProfile />} />
+          <Route path='/users/:username' element={<OtherUserProfile />} />
         </Routes>
       </Layout>
     </Router>

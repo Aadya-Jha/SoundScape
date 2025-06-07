@@ -1,33 +1,49 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import SongDetails from "../components/SongDetails";
+import Review from "../components/Review";
+import AddReviewForm from "../components/AddReviewForm";
 
 const SingleSongPage = () => {
   const { songname } = useParams();
   const [song, setSong] = useState({});
+  const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    const songDetails = async () => {
+    const fetchSong = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/songs/${songname}`);
-        const data = await response.json();
+        const res = await fetch(`http://localhost:3000/songs/${songname}`);
+        const data = await res.json();
         setSong(data);
-      } catch (error) {
-        console.error("Error fetching song:", error);
+        setReviews(data.reviews || []);
+      } catch (err) {
+        console.error("Error fetching song:", err);
       }
     };
-    songDetails();
+
+    fetchSong();
   }, [songname]);
 
-  if (!song || Object.keys(song).length === 0) {
-    return <p>Loading song details...</p>;
-  }
+  const handleAddReview = () => {
+    console.log("Review submitted!");
+  };
+
 
   return (
-    <div>
-      <h1>{song.title}</h1>
-      <p>{song.artist}</p>
-      <img src={song.albumURL} alt={song.title} width="200" />
-      <p>{song.description}</p>
+    <div className="single-song-page">
+      <SongDetails song={song} />
+
+      <div className="reviews-section">
+        <h2>Reviews</h2>
+        {reviews.length === 0 ? (
+          <p>No reviews yet.</p>
+        ) : (
+          reviews.map((review) => (
+            <Review key={review.id} review={review} />
+          ))
+        )}
+      </div>
+      <AddReviewForm onSubmit={handleAddReview} />
     </div>
   );
 };

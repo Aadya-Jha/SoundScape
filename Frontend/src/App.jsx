@@ -18,6 +18,7 @@ function App() {
           <Route path="/CreateAccountPage" element={<CreateAccountPage />} />
           <Route path="/SignInPage" element={<SignInPage />} />
           <Route path="/SongsPage" element={<SongsPage />} />
+          <Route path="/songs/:songname" element={<SingleSongPage />} />
           <Route path="/songs/artist/:artistName" element={<ArtistSongsPage/>} />
           <Route path='/songs/:songname' element={<SingleSongPage />}/>
           <Route path='/users/me' element={<UserProfile />} />

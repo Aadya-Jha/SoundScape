@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import './SongsPage.css';
 import SongCard from '../components/SongCard';
 
@@ -37,11 +38,13 @@ const SongsPage = () => {
       <h2>Songs</h2>
       <div className="songs-list">
         {filteredSongs.map((song, index) => (
-          <SongCard
-            key={index}
-            title={song.albumName}
-            artist={song.artistName}
-          />
+          <Link to={`/songs/${encodeURIComponent(song.albumName)}`} key={index} style={{ textDecoration: 'none', color: 'inherit' }}>
+            <SongCard
+              title={song.albumName}
+              artist={song.artistName}
+              albumURL={song.albumURL}
+            />
+          </Link>
         ))}
       </div>
     </div>

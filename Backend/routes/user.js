@@ -15,6 +15,6 @@ const {
 
 router.post('/signin', userSignin);
 router.get('/me', getUserProfile);
-router.get('/:userid', otherUsersProfile);
+router.get('/:username', otherUsersProfile);
 
 module.exports = router;

@@ -12,11 +12,13 @@ const getUserProfile = (req, res) => {
 };
 
 const otherUsersProfile = (req,res) => {
-    const {userid} = req.params;
-    const user= {
-        id: userid,
-        username: "user_"+ userid
-    }
+    const {username} = req.params;
+    const user= [
+        {
+            username: username,
+            bio: "xyz"
+        },   
+    ];
     res.json(user);
 }
 const userSignin = (req, res) => {

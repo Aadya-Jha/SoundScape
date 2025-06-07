@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import SongDetails from "../components/SongDetails";
 import Review from "../components/Review";
 import AddReviewForm from "../components/AddReviewForm";
+import './SingleSongPage.css'
 
 const SingleSongPage = () => {
   const { songname } = useParams();

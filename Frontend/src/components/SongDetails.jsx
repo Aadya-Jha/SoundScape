@@ -1,4 +1,5 @@
 import React from 'react';
+import './SongDetails.css';
 
 const SongDetails = ({ song }) => (
   <div className="song-details">

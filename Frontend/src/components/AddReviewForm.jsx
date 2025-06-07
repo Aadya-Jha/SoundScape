@@ -1,4 +1,5 @@
 import React from 'react';
+import './AddReviewForm.css';
 
 const AddReviewForm = ({ onSubmit }) => (
     <div className = "addReview">

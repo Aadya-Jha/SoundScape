@@ -27,7 +27,18 @@ const UserProfile = () => {
              </div>
         </div>
         <div className="user-activity">
-            <h2>Your Reviews</h2>
+            <h3>Your Reviews</h3>
+            {profile.reviews && profile.reviews.length > 0 ? (
+             profile.reviews.map((review, index) => (
+            <div className="review-card" key={index}>
+               <p><strong>Song:</strong> {review.songName}</p>
+               <p><strong>Comment:</strong> {review.comment}</p>
+               <p><strong>Rating:</strong> {review.rating}/5</p>
+           </div>
+           ))
+           ) : (
+           <p>No reviews yet.</p>
+           )}
         </div>
     </div>
 );

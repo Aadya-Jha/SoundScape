@@ -31,6 +31,7 @@ const UserProfile = () => {
             {profile.reviews && profile.reviews.length > 0 ? (
              profile.reviews.map((review, index) => (
             <div className="review-card" key={index}>
+               <img src={review.song.coverImage} alt="Song cover" className="review-img" />
                <p><strong>Song:</strong> {review.songName}</p>
                <p><strong>Comment:</strong> {review.comment}</p>
                <p><strong>Rating:</strong> {review.rating}/5</p>

@@ -1,0 +1,48 @@
+.other-profile-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem;
+  font-family: sans-serif;
+}
+
+.other-profile-content {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.other-profile-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1.5rem;
+}
+
+.other-profile-info h1 {
+  margin: 0;
+  font-size: 1.75rem;
+}
+
+.activity-heading {
+  font-size: 1.2rem;
+  color: #7f56d9;
+  font-weight: 600;
+  margin-top: 1.5rem;
+}
+
+.user-reviews {
+  margin-top: 1rem;
+}
+
+.review-card {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  margin-bottom: 1rem;
+}

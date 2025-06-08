@@ -31,7 +31,7 @@ const OtherUserProfile = () => {
             </ul>
             </div>
             </div>
-            <h2 className="activity-heading">{profile.username}'s Reviews</h2>
+            <h2 className="activity-heading">{username}'s Reviews</h2>
             <div className="user-reviews">
               {profile.reviews && profile.reviews.length > 0 ? (
               profile.reviews.map((review, index) => (

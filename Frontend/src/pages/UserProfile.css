@@ -82,3 +82,22 @@ width: 140px;
   height: auto;
   object-fit: cover;
 }
+
+.listen-track-card {
+  background: #ede9fe; /* light lavender */
+  border-left: 6px solid #a78bfa; /* soft purple */
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 6px 16px rgba(127, 86, 217, 0.12);
+  margin-bottom: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.listen-track-card:hover {
+  transform: translateY(-4px);
+}
+
+.listen-track-card h2
+{
+  font-size: 1.3rem;
+}

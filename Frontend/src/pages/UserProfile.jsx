@@ -26,6 +26,21 @@ const UserProfile = () => {
                <p>{profile.bio}</p>
              </div>
         </div>
+        <div className="listen-track-card">
+            <h2>Want to Listen</h2>
+            <ul>
+                {profile.wantToListen?.map((song, idx) => (
+                    <li key={idx}>{song.albumName}</li>
+                 ))}
+            </ul>
+
+            <h2>Listened</h2>
+            <ul>
+                {profile.listened?.map((song, idx) => (
+                    <li key={idx}>{song.albumName}</li>
+                ))}
+            </ul>
+        </div>
         <div className="user-activity">
             <h3>Your Reviews</h3>
             {profile.reviews && profile.reviews.length > 0 ? (
@@ -43,7 +58,6 @@ const UserProfile = () => {
         </div>
     </div>
 );
-
 
 }
 

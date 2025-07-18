@@ -28,6 +28,33 @@ const SingleSongPage = () => {
   const handleAddReview = () => {
     console.log("Review submitted!");
   };
+  
+  const handleMarkWantToListen = async () => {
+  try {
+    await fetch(`http://localhost:3000/users/me/wantToListen`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ songId: song.id })
+    });
+    alert("Added to Want to Listen!");
+  } catch (err) {
+    console.error("Failed to mark as Want to Listen:", err);
+  }
+};
+
+const handleMarkListened = async () => {
+  try {
+    await fetch(`http://localhost:3000/users/me/listened`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ songId: song.id })
+    });
+    alert("Marked as Listened!");
+  } catch (err) {
+    console.error("Failed to mark as Listened:", err);
+  }
+};
+
 
 
   return (
@@ -43,6 +70,10 @@ const SingleSongPage = () => {
             <Review key={review.id} review={review} />
           ))
         )}
+      </div>
+      <div className="tracking-buttons">
+        <button onClick={handleMarkWantToListen}>Want to Listen</button>
+        <button onClick={handleMarkListened}>Mark as Listened</button>
       </div>
       <AddReviewForm onSubmit={handleAddReview} />
     </div>

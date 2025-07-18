@@ -18,3 +18,25 @@
   color: #333;
   font-size: 1.5rem;
 }
+
+.tracking-buttons {
+  margin: 1rem 0;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.tracking-buttons button {
+  padding: 0.6rem 1.2rem;
+  background-color: #8b5cf6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.tracking-buttons button:hover {
+  background-color: #7c3aed;
+}

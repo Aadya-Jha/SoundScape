@@ -25,10 +25,20 @@ const SingleSongPage = () => {
     fetchSong();
   }, [songname]);
 
-  const handleAddReview = () => {
+  const handleAddReview = async (newReview) => {
+  try {
+      await fetch(`http://localhost:3000/songs/${songname}/reviews`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newReview),
+    });
     console.log("Review submitted!");
-  };
-  
+  } catch (err) {
+    console.error("Failed to submit review:", err);
+  }
+};
+
+
   const handleMarkWantToListen = async () => {
   try {
     await fetch(`http://localhost:3000/users/me/wantToListen`, {

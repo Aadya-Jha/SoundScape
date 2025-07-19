@@ -1,6 +1,7 @@
-import React, {useState, useEffect} from "react"
+import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
-
+import './ArtistSongsPage.css';
+import SongCard from '../components/SongCard';
 
 const ArtistSongsPage = () => {
   const { artistName } = useParams();
@@ -16,18 +17,30 @@ const ArtistSongsPage = () => {
     allSongsOfArtist();
   }, [artistName]);
 
-  return(
-    <div>
+  return (
+    <div className="artist-page">
+      <div className="artist-header">
         <h1>{artistName}</h1>
-        <ul>
-          {songs.map((song, index) => (
-            <li key={index}>
-              {song.title} — {song.artist}
-            </li>
-          ))}
-        </ul>
+        <p>{songs.length} Songs</p>
+      </div>
+
+      <div className="songs-list">
+        {songs.map((song, index) => (
+          <Link
+            to={`/songs/${encodeURIComponent(song.title)}`}
+            key={index}
+            style={{ textDecoration: 'none', color: 'inherit' }}
+          >
+            <SongCard
+              title={song.albumName}
+              artist={song.artistName}
+              albumURL={song.albumURL}
+            />
+          </Link>
+        ))}
+      </div>
     </div>
   );
-}
+};
 
 export default ArtistSongsPage;

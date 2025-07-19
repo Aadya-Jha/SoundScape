@@ -1,0 +1,9 @@
+.artist-header {
+  margin-bottom: 2rem;
+}
+
+.artist-header h1 {
+  font-size: 3rem;
+  text-transform: capitalize;
+  margin: 0;
+}

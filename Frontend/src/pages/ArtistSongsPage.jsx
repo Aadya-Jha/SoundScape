@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import './ArtistSongsPage.css';
 import SongCard from '../components/SongCard';
 
@@ -19,8 +20,12 @@ const ArtistSongsPage = () => {
 
   return (
     <div className="artist-page">
+      <div className="artist-banner">
+        <img src="https://via.placeholder.com/1500x400?text=Artist+Banner" alt={`${artistName} banner`} />
+      </div>
+
       <div className="artist-header">
-        <h1>{artistName}</h1>
+        <h1>{artistName.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</h1>
         <p>{songs.length} Songs</p>
       </div>
 

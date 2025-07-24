@@ -1,3 +1,12 @@
+let songs = [
+  {
+    _id: "1",
+    title: "Sample Song",
+    reviews: [],
+  },
+];
+
+
 const allSongs = (req, res) => {
   const songs = [
     { albumName: "Bad Blood", artistName: "Taylor Swift" },
@@ -53,8 +62,30 @@ const selectedSong = (req, res) => {
   }
 };
 
+const addReviews = async (req, res) => {
+  try {
+    const songid = req.params.songid;
+    const { userName, review, rating } = req.body;
+    const newReview = { userName, review, rating };
+
+    const song = songs.find(s => s._id === songid); // dummy version
+
+    if (!song) {
+      return res.status(404).json({ message: "Song not found" });
+    }
+
+    song.reviews.push(newReview);
+    res.status(201).json({ message: "Review added", song });
+
+  } catch (error) {
+    console.error("Error in addReviews:", error);
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+};
+
 module.exports = {
   allSongs,
   artist,
-  selectedSong
+  selectedSong,
+  addReviews
 };

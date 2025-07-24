@@ -83,9 +83,28 @@ const addReviews = async (req, res) => {
   }
 };
 
+const editReviews = (req,res) => {
+  const {songid, reviewid} = req.params;
+  const song = songs.find(s => s._id === songid);
+  if (!song) {
+    return res.status(404).json({ message: "Song not found" });
+  }
+  const review = song.reviews.find(r => r._id === reviewid);
+  if (!review) {
+    return res.status(404).json({ message: "Song not found" });
+  }
+  const {userName, review: newReviewText, rating} = req.body;
+  if (userName) review.userName = userName;
+  if (newReviewText) review.review = newReviewText;
+  if (rating) review.rating = rating;
+  res.status(200).json({ message: "Review updated", song });
+
+}
+
 module.exports = {
   allSongs,
   artist,
   selectedSong,
-  addReviews
+  addReviews,
+  editReviews
 };

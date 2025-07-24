@@ -6,6 +6,7 @@ const {
     artist,
     selectedSong,
     addReviews,
+    editReviews,
     idSong
 } = require('../controllers/songController')
 
@@ -14,10 +15,6 @@ router.get('/artist/:artistName', artist);
 router.get('/:songname', selectedSong);
 
 router.post('/:songid/review', addReviews);
-
-const editReviews = (req, res) => {
-    res.send("edit review to the song");
-};
 
 router.put('/:songid/review/:reviewid', editReviews);
 

@@ -98,6 +98,20 @@ const editReviews = (req,res) => {
   if (newReviewText) review.review = newReviewText;
   if (rating) review.rating = rating;
   res.status(200).json({ message: "Review updated", song });
+}
+
+const deleteReviews = (req,res) => {
+  const {songid, reviewid} =req.params;
+  const song = songs.find(s => s._id === songid);
+  if (!song) {
+    return res.status(404).json({ message: "Song not found" });
+  }
+  const reviewIndex = song.reviews.findIndex(r => r._id === reviewid);
+  if (!reviewIndex) {
+    return res.status(404).json({ message: "Song not found" });
+  }
+  song.reviews.splice(reviewIndex, 1);
+  res.status(200).json({ message: "Review deleted", song });
 
 }
 
@@ -106,5 +120,6 @@ module.exports = {
   artist,
   selectedSong,
   addReviews,
-  editReviews
+  editReviews,
+  deleteReviews
 };

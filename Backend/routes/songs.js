@@ -7,6 +7,7 @@ const {
     selectedSong,
     addReviews,
     editReviews,
+    deleteReviews,
     idSong
 } = require('../controllers/songController')
 
@@ -17,10 +18,6 @@ router.get('/:songname', selectedSong);
 router.post('/:songid/review', addReviews);
 
 router.put('/:songid/review/:reviewid', editReviews);
-
-const deleteReviews = (req, res) => {
-    res.send("delete review to the song");
-};
 
 router.delete('/:songid/review/:reviewid', deleteReviews);
 

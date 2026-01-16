@@ -32,7 +32,6 @@ const userSignin = (req, res) => {
     });
 };
 
-//check the post route using postman
 module.exports = {
      getUserProfile,
      otherUsersProfile,

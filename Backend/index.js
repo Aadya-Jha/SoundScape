@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
   res.send('Home page');
 });
 
-app.get("/song", async (req, res) => {
+app.get("/songs", async (req, res) => {
   const result = await pool.query(`
     SELECT songs.id AS song_id, songs.title, artist.artistname AS artist
     FROM songs

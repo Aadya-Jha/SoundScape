@@ -1,20 +1,19 @@
-const express = require('express');
+import express from "express";
+import {
+  userSignin,
+  getUserProfile,
+  otherUsersProfile
+} from "../controllers/userController.js";
+
 const router = express.Router();
 
-const loginUser = (req ,res) => {
-    res.send("Login page");
-}
+const loginUser = (req, res) => {
+  res.send("Login page");
+};
 
-router.post('/login', loginUser);
+router.post("/login", loginUser);
+router.post("/signin", userSignin);
+router.get("/me", getUserProfile);
+router.get("/:username", otherUsersProfile);
 
-const {
-    userSignin,
-    getUserProfile,
-    otherUsersProfile,
-} = require('../controllers/userController')
-
-router.post('/signin', userSignin);
-router.get('/me', getUserProfile);
-router.get('/:username', otherUsersProfile);
-
-module.exports = router;
+export default router;

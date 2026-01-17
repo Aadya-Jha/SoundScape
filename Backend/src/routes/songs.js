@@ -1,15 +1,15 @@
-const express = require('express');
-const router = express.Router();
+import express from "express";
+import {
+  allSongs,
+  artist,
+  selectedSong,
+  addReviews,
+  editReviews,
+  deleteReviews,
+  idSong
+} from "../controllers/songController.js";
 
-const {
-    allSongs,
-    artist,
-    selectedSong,
-    addReviews,
-    editReviews,
-    deleteReviews,
-    idSong
-} = require('../controllers/songController')
+const router = express.Router();
 
 router.get('/', allSongs);
 router.get('/artist/:artistName', artist);
@@ -21,4 +21,4 @@ router.put('/:songid/review/:reviewid', editReviews);
 
 router.delete('/:songid/review/:reviewid', deleteReviews);
 
-module.exports = router;
+export default router;

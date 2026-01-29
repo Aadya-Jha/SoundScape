@@ -1,4 +1,4 @@
-import "dotenv/config";
+import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 
@@ -7,6 +7,7 @@ import userRouter from './src/routes/user.js';
 import songRouter from './src/routes/songs.js';
 import spotifyRouter from "./src/routes/spotify.js";
 import authRouter from './src/routes/auth.js';
+import musicRouter from './src/routes/music.js';
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use('/users', userRouter);
 app.use('/songs', songRouter);
 app.use('/spotify', spotifyRouter);
 app.use('/auth', authRouter);
+app.use('/music', musicRouter)
 
 app.get('/', (req, res) => {
   res.send('Home page');

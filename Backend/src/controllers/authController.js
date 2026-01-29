@@ -1,24 +1,34 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import pool from "../db/db";
+import pool from "../db/db.js";
  
-export const register = async (req,res) => {
-    const { username, email, password } = req.body;
-    
-    try{
-        const hashed = await bcrypt.hash(password, 10);
+export const register = async (req, res) => {
+  const { username, email, password } = req.body;
 
-        const result = pool.query(
-            `INSERT INTO users (username, email, password_hash)
-            VALUES ($1, $2, $3)
-            RETURNING user_id, username, email`,
-            [username, email, password]
-        );
-        res.status(201).json(result.rows[0]);
-    } catch (err){
-        res.status(500).json({error: err.message});
+  try {
+    const hashed = await bcrypt.hash(password, 10);
+
+    const result = await pool.query(
+      `INSERT INTO users (username, email, password_hash)
+       VALUES ($1, $2, $3)
+       RETURNING user_id, username, email`,
+      [username, email, hashed]
+    );
+
+    return res.status(201).json(result.rows[0]);
+  } catch (err) {
+    console.error(err); // IMPORTANT for now
+
+    if (err.code === "23505") {
+      return res
+        .status(409)
+        .json({ message: "Username or email already exists" });
     }
+
+    return res.status(500).json({ message: "Internal server error" });
+  }
 };
+
 
 export const login = async (req,res) => {
     const { username, email, password } = req.body;
